@@ -1,15 +1,15 @@
 package com.yashraj.taskmanager.controller;
 
 
+import com.yashraj.taskmanager.dto.LoginRequest;
+import com.yashraj.taskmanager.dto.LoginResponse;
 import com.yashraj.taskmanager.dto.RegisterRequest;
 import com.yashraj.taskmanager.entity.User;
 import com.yashraj.taskmanager.service.UserService;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -32,5 +32,10 @@ public class UserController {
         user.setRole(User.Role.USER);
 
         return userService.registerUser(user);
+    }
+
+    @PostMapping("/login")
+    public LoginResponse login(@Valid @RequestBody LoginRequest request) {
+        return userService.login(request);
     }
 }
