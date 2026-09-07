@@ -21,8 +21,19 @@ public class LoginResponse {
         this.role = role;
     }
 
-    public String getToken(){ return token; }
-    public String getName(){ return name; }
-    public String getEmail(){ return email; }
-    public String getRole(){ return role; }
+    public String getToken() {
+        return token;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getRole() {
+        return role;
+    }
 }

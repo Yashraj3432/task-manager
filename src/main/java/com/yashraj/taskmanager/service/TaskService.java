@@ -21,6 +21,17 @@ public class TaskService {
     }
 
     // Create Task
+
+    public Task updateStatus(Long taskId, Task.Status status) {
+
+        Task task = taskRepository.findById(taskId)
+                .orElseThrow(() -> new RuntimeException("Task not found"));
+
+        task.setStatus(status);
+
+        return taskRepository.save(task);
+    }
+
     public Task createTask(Long projectId, Task task) {
 
         Project project = projectRepository.findById(projectId)

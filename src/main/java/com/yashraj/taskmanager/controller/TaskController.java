@@ -1,5 +1,6 @@
 package com.yashraj.taskmanager.controller;
 
+import com.yashraj.taskmanager.dto.UpdateStatusRequest;
 import com.yashraj.taskmanager.entity.Task;
 import com.yashraj.taskmanager.service.TaskService;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,14 @@ public class TaskController {
             @RequestBody Task task) {
 
         return service.createTask(projectId, task);
+    }
+
+    @PatchMapping("/{taskId}/status")
+    public Task updateStatus(
+            @PathVariable Long taskId,
+            @RequestBody UpdateStatusRequest request) {
+
+        return service.updateStatus(taskId, request.getStatus());
     }
 
     // Get Tasks by Project
