@@ -2,22 +2,27 @@ package com.yashraj.taskmanager.dto;
 
 public class LoginResponse {
 
-    private Long id;
+    private String token;
     private String name;
     private String email;
     private String role;
 
-    public LoginResponse() {}
+    public LoginResponse(){}
 
-    public LoginResponse(Long id, String name, String email, String role) {
-        this.id = id;
+    public LoginResponse(
+            String token,
+            String name,
+            String email,
+            String role) {
+
+        this.token = token;
         this.name = name;
         this.email = email;
         this.role = role;
     }
 
-    public Long getId() { return id; }
-    public String getName() { return name; }
-    public String getEmail() { return email; }
-    public String getRole() { return role; }
+    public String getToken(){ return token; }
+    public String getName(){ return name; }
+    public String getEmail(){ return email; }
+    public String getRole(){ return role; }
 }
